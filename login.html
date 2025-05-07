@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SMI</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="color.css" />
+        <link rel="stylesheet" href="flexbox.css" />
+        <link rel="stylesheet" href="spacing.css" />
+        <link rel="stylesheet" href="typography.css" />
+        <link rel="icon" type="image/x-icon" href="./icons/logo.svg">
+    </head>
+    <body class="d-flex fd-col">
+        <nav class="d-flex jc-sb ai-center w-100 bg-dark" style="padding: 16px 24px;">
+            <div class="fs-xl fw-bold white d-flex gap-16">
+                <img src="./icons/logo.svg" alt="logo">    
+                SMI Штамповка
+            </div>
+            <div class="d-flex gap-16">
+                <img src="./icons/artel.svg" alt="artel">    
+                <img src="./icons/sap.svg" alt="sap">   
+            </div>
+        </nav>
+    
+        <main class="d-flex jc-center ai-center flex-1">
+            <div class="d-flex fd-col gap-18 p-32 br-8 bg-dark w-400">
+                <h2 class="fs-xl fw-bold white">Логин</h2>
+                <div class="input-container w-100">
+                    <input type="text" placeholder="username" oninput="checkInput(this)" >
+                </div>
+                <div class="input-container w-100">
+                    <input type="password" id="password" placeholder="password" oninput="checkInput(this)" />
+                    <button type="button" class="toggle-password p-0" onclick="togglePassword()">
+                        <img src="./icons/eye.svg" alt="Back">
+                    </button>
+                </div>
+                <button class="login w-100 br-4" onclick="goToPage('/main.html')">Войти</button>
+            </div>
+        </main>
+        
+        <script>
+
+            function checkInput(input) {
+                if (input.value.trim() !== "") {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            }
+
+            function togglePassword() {
+                const input = document.getElementById("password");
+                const button = input.parentElement.querySelector(".toggle-password");
+                const img = button.querySelector("img");
+
+                if(input.type === 'password') {
+                    input.type = 'text'
+                    img.src = './icons/eye-close.svg'
+                } else {
+                    input.type = 'password'
+                    img.src = './icons/eye.svg'
+                }
+            }
+
+            function goToPage(route) {
+                window.location.href = route;
+            }
+        </script>
+    </body>
+</html>

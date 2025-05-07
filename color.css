@@ -1,0 +1,30 @@
+.bg-none {
+    background: none;
+}
+.bg-dark {
+    background-color: #1e1e1e;
+}
+.bg-dark-blue {
+    background: #7257ff;
+    border: 1px solid #7257ff;
+}
+.bg-light-blue {
+    background: #f0edff;
+    border: 1px solid #f0edff;
+}
+.bg-danger {
+    background: #DB340B;
+    border: 1px solid #DB340B;
+}
+.dark-blue {
+    color: #7257ff;
+}
+.white {
+    color: #fff;
+}
+.black {
+    color: #1e1e1e;
+}
+.grey {
+    color: #6E7375;
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="color.css" />
+    <link rel="stylesheet" href="flexbox.css" />
+    <link rel="stylesheet" href="spacing.css" />
+    <link rel="stylesheet" href="typography.css" />
+    <link rel="icon" type="image/x-icon" href="./icons/logo.svg">
+</head>
+
+<body class="d-flex fd-col">
+    <nav class="d-flex jc-sb ai-center w-100 bg-dark" style="padding: 16px 24px;">
+        <div class="logo" onclick="goToPage('/main.html')">
+            <img src="./icons/logo.svg" alt="logo">
+            SMI Штамповка
+        </div>
+        <div class="d-flex gap-16">
+            <img src="./icons/artel.svg" alt="artel">
+            <img src="./icons/sap.svg" alt="sap">
+        </div>
+    </nav>
+
+    <main class="flex-1 w-100 p-32">
+        <div class="d-flex jc-sb">
+            <h2 class="fs-xl fw-bold">Создание производственного заказа</h2>
+            <div class="d-flex gap-8">
+                <button type="button" class="secondary d-flex gap-8">
+                    <img src="./icons/clear.svg" alt="clear" style="width: 20px;">
+                    Очистить
+                </button>
+                <button type="button" class="secondary d-flex gap-8">
+                    <img src="./icons/check.svg" alt="check" style="width: 20px;">
+                    Проверить
+                </button>
+                <button type="button" class="secondary d-flex gap-8">
+                    <img src="./icons/save.svg" alt="save" style="width: 20px;">
+                    Сохранить
+                </button>
+            </div>
+        </div>
+        <div class="d-flex mt-2">
+            <div class="tabs d-flex gap-16">
+                <button type="button" class="active">A</button>
+                <button type="button" onclick="goToPage('plan-add-b.html')">B</button>
+                <button type="button" onclick="goToPage('plan-add-c.html')">C</button>
+            </div>
+        </div>
+        <div class="d-flex">
+            <form>
+                <h3 class="fs-md fw-medium mb-1">Данные для заказа</h3>
+                <div class="d-flex gap-16">
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>Выберите завод</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div>Завод A</div>
+                            <div>Завод B</div>
+                            <div>Завод C</div>
+                        </div>
+                    </div>
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>Выберите участок</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div>Участок 1</div>
+                            <div>Участок 2</div>
+                            <div>Участок 3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-16">
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>Номер панели</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div>Панел 1</div>
+                            <div>Панел 2</div>
+                            <div>Панел 3</div>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input type="date">
+                    </div>
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>Выберите смену</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div>Ночь</div>
+                            <div>День</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-16">
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>SAP код материала</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div>Решётка Р/С 2газ средн горел (Эмаль)</div>
+                            <div>Решётка Р/С 1 Ср + 1 Эл Dolce V2 (Эмаль)</div>
+                            <div>Решётка Р/С 1 газ средн +1 элект (Эмаль)</div>
+                            <div>Решётка Р/С 1 газ Cред+1 элект 50x57 (Э)</div>
+                            <div>ЗаготАлюм Ручки ДвДух ЛЮКС S 90 рез</div>
+                            <div>Ручки ДвДух ЛЮКС F 90 резьба</div>
+                            <div>Ручка проф (Modern)(ГП Shivaki) Пресс</div>
+                            <div>MP Боковая решётка Пресс</div>
+                            <div>Боковая решётка 3 полка Пресс</div>
+                        </div>
+                    </div>
+                    <div class="select flex-1">
+                        <div class="selected">
+                            <span>Вариант изготовления</span>
+                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                        </div>
+                        <div class="options">
+                            <div data-value="1">Вариант 1</div>
+                            <div data-value="2">Вариант 2</div>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <input type="number" id="plan">
+                        <label for="plan">План количество</label>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-16">
+                    <div class="input-container flex-1">
+                        <input type="number" id="multiplier">
+                        <label for="multiplier">Множитель</label>
+                    </div>
+                    <div class="input-container flex-1">
+                        <input type="number" id="pulse">
+                        <label for="pulse">Пульс</label>
+                    </div>
+                    <div class="input-container flex-1">
+                        <input type="number" id="measurement">
+                        <label for="measurement">Ед. изм</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.select').forEach(select => {
+            const selected = select.querySelector('.selected');
+            const span = selected.getElementsByTagName('span')[0]
+            const items = select.querySelector('.options');
+            selected.addEventListener('click', () => {
+                document.querySelectorAll('.options').forEach(i => {
+                    if (i !== items) i.style.display = 'none';
+                });
+                items.style.display = items.style.display === 'block' ? 'none' : 'block';
+            });
+            items.querySelectorAll('div').forEach(option => {
+                option.addEventListener('click', () => {
+                    span.textContent = option.textContent;
+                    items.style.display = 'none';
+                });
+            });
+        });
+
+        window.addEventListener('click', function (e) {
+            if (!e.target.matches('.selected')) {
+                document.querySelectorAll('.options').forEach(i => i.style.display = 'none');
+            }
+        });
+
+        function goToPage(route) {
+            window.location.href = route;
+        }
+    </script>
+</body>
+
+</html>
