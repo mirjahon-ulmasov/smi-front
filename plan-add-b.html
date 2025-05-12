@@ -57,110 +57,111 @@
             <form>
                 <h3 class="fs-md fw-medium mb-1">Данные для заказа</h3>
                 <div class="d-flex gap-16">
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>Выберите завод</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                    <label class="flex-1">
+                        Завод
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите завод</option>
+                                <option value="1">Завод A</option>
+                                <option value="2">Завод B</option>
+                                <option value="3">Завод C</option>
+                            </select>
                         </div>
-                        <div class="options">
-                            <div>Завод A</div>
-                            <div>Завод B</div>
-                            <div>Завод C</div>
+                    </label>
+                    <label class="flex-1">
+                        Участок
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите участок</option>
+                                <option value="1">Участок 1</option>
+                                <option value="2">Участок 2</option>
+                                <option value="3">Участок 3</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>Выберите участок</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
-                        </div>
-                        <div class="options">
-                            <div>Участок 1</div>
-                            <div>Участок 2</div>
-                            <div>Участок 3</div>
-                        </div>
-                    </div>
+                    </label>
                 </div>
 
                 <div class="d-flex gap-16">
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>Номер панели</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                    <label class="flex-1">
+                        Номер панели
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите панел</option>
+                                <option value="1">Панел 1</option>
+                                <option value="2">Панел 2</option>
+                                <option value="3">Панел 3</option>
+                            </select>
                         </div>
-                        <div class="options">
-                            <div>Панел 1</div>
-                            <div>Панел 2</div>
-                            <div>Панел 3</div>
+                    </label>
+                    <label>
+                        Дата:
+                        <input type="date" />
+                    </label>
+                    <label class="flex-1">
+                        Смена
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите смену</option>
+                                <option value="1">Ночь</option>
+                                <option value="2">День</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="input-container">
-                        <input type="date">
-                    </div>
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>Выберите смену</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
-                        </div>
-                        <div class="options">
-                            <div>Ночь</div>
-                            <div>День</div>
-                        </div>
-                    </div>
+                    </label>
                 </div>
 
                 <div class="d-flex gap-16">
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>SAP код материала</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
+                    <label class="flex-1">
+                        SAP код материала
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите материал</option>
+                                <option value="1">Решётка Р/С 2газ средн горел (Эмаль)</option>
+                                <option value="2">Решётка Р/С 1 Ср + 1 Эл Dolce V2 (Эмаль)</option>
+                                <option value="3">Решётка Р/С 1 газ средн +1 элект (Эмаль)</option>
+                                <option value="4">Решётка Р/С 1 газ Cред+1 элект 50x57 (Э)</option>
+                                <option value="5">ЗаготАлюм Ручки ДвДух ЛЮКС S 90 рез</option>
+                                <option value="6">Ручки ДвДух ЛЮКС F 90 резьба</option>
+                                <option value="7">Ручка проф (Modern)(ГП Shivaki) Пресс</option>
+                                <option value="8">MP Боковая решётка Пресс</option>
+                                <option value="9">Боковая решётка 3 полка Пресс</option>
+                            </select>
                         </div>
-                        <div class="options">
-                            <div>Решётка Р/С 2газ средн горел (Эмаль)</div>
-                            <div>Решётка Р/С 1 Ср + 1 Эл Dolce V2 (Эмаль)</div>
-                            <div>Решётка Р/С 1 газ средн +1 элект (Эмаль)</div>
-                            <div>Решётка Р/С 1 газ Cред+1 элект 50x57 (Э)</div>
-                            <div>ЗаготАлюм Ручки ДвДух ЛЮКС S 90 рез</div>
-                            <div>Ручки ДвДух ЛЮКС F 90 резьба</div>
-                            <div>Ручка проф (Modern)(ГП Shivaki) Пресс</div>
-                            <div>MP Боковая решётка Пресс</div>
-                            <div>Боковая решётка 3 полка Пресс</div>
+                    </label>
+                    <label class="flex-1">
+                        Вариант изготовления
+                        <div class="select-container">
+                            <select>
+                                <option value="">Выберите вариант</option>
+                                <option value="1">Вариант 1</option>
+                                <option value="2">Вариант 2</option>
+                            </select>
                         </div>
-                    </div>
-                    <div class="select flex-1">
-                        <div class="selected">
-                            <span>Вариант изготовления</span>
-                            <img src="./icons/arrow.svg" alt="Arrow" class="arrow down">
-                        </div>
-                        <div class="options">
-                            <div data-value="1">Вариант 1</div>
-                            <div data-value="2">Вариант 2</div>
-                        </div>
-                    </div>
+                    </label>
                     <div class="d-flex gap-8">
-                        <div class="input-container" style="width: 100px;">
-                            <input type="number" id="metre">
-                            <label for="plan">М</label>
-                        </div>
-                        <div class="input-container" style="width: 100px;">
-                            <input type="number" id="kg">
-                            <label for="plan">КГ</label>
-                        </div>
+                        <label style="width: 100px;">
+                            М
+                            <input type="number" placeholder="М" />
+                        </label>
+                        <label style="width: 100px;">
+                            КГ
+                            <input type="number" placeholder="КГ" />
+                        </label>
                     </div>
                 </div>
 
                 <div class="d-flex gap-16">
-                    <div class="input-container flex-1">
-                        <input type="number" id="multiplier">
-                        <label for="multiplier">Множитель</label>
-                    </div>
-                    <div class="input-container flex-1">
-                        <input type="number" id="pulse">
-                        <label for="pulse">Пульс</label>
-                    </div>
-                    <div class="input-container flex-1">
-                        <input type="number" id="measurement">
-                        <label for="measurement">Ед. изм</label>
-                    </div>
+                    <label class="flex-1">
+                        Множитель
+                        <input type="number" placeholder="Множитель" />
+                    </label>
+                    <label class="flex-1">
+                        Пульс
+                        <input type="number" placeholder="Пульс" />
+                    </label>
+                    <label class="flex-1">
+                        Ед. изм
+                        <input type="number" placeholder="Ед. изм" />
+                    </label>
                 </div>
             </form>
 
