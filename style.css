@@ -98,13 +98,6 @@ button.secondary {
 button.secondary:hover {
     background: #0d7c66a9;
 }
-button.login {
-    background-color: #3b82f6;
-    transition: background-color 0.3s;
-}
-button.login:hover {
-    background-color: #2563eb;
-}
 
 .extra-info {
     padding: 4px 8px;
@@ -113,52 +106,6 @@ button.login:hover {
     text-transform: uppercase;
     background: #cff5b1;
     border-radius: 4px;
-}
-
-/* ---------------- Input ---------------- */
-.input-container {
-    position: relative;
-}
-.input-container input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    color: #131214;
-    outline: none;
-    background: white;
-    border-radius: 4px;
-    border: 1px solid #e6e9eb;
-}
-.input-container input:focus {
-    outline: 2px solid #3b82f6;
-}
-.input-container.error input {
-    border: 2px solid #ff9175;
-    background: #fff3f0;
-}
-.input-container label {
-    padding: 0 4px;
-    position: absolute;
-    top: 16px;
-    left: 12px;
-    font-size: 16px;
-    color: #6e7375;
-    transition: 0.3s;
-}
-.input-container input:focus + label,
-.input-container input.filled + label {
-    top: -8px;
-    left: 8px;
-    font-size: 12px;
-    padding: 1px 2px;
-    background: white;
-}
-
-/* ---------------- Eye Icon ---------------- */
-.toggle-password {
-    position: absolute;
-    right: 12px;
-    top: 12px;
 }
 
 .menu-item {
@@ -183,76 +130,6 @@ button.login:hover {
 .tabs button.active {
     color: #0d7c65;
     background: #cff5b1;
-}
-
-form {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    width: 60%;
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    background: #1e1e1e;
-    border-radius: 8px;
-}
-
-form .input-container input {
-    background: #2c2c2c;
-    padding: 14px;
-    color: white;
-    border: none;
-}
-form .input-container input:focus + label,
-form .input-container input.filled + label {
-    background: #2c2c2c;
-}
-
-.select {
-    position: relative;
-    background: #2c2c2c;
-    border-radius: 4px;
-    color: #fff;
-    user-select: none;
-    cursor: pointer;
-}
-.select .selected {
-    padding: 16px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: space-between;
-}
-.select .arrow {
-    width: 16px;
-    height: 16px;
-    transform: rotate(180deg);
-    transition: transform 0.3s ease;
-    pointer-events: none;
-}
-.select.open .arrow {
-    transform: rotate(0deg);
-}
-.options {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    right: 0;
-    background: #2c2c2c;
-    border-radius: 4px;
-    max-height: 15rem;
-    overflow-y: auto;
-    display: none;
-    z-index: 99;
-}
-.select.open .options {
-    display: block;
-}
-.options div {
-    padding: 10px;
-    cursor: pointer;
-}
-.options div:hover {
-    background: #444;
 }
 
 .arrow.down {
@@ -282,6 +159,8 @@ form .input-container input.filled + label {
     border-bottom: 1px solid #ffffff1c;
 }
 
+/* ------------ Filter styles ------------ */
+
 .filters {
     display: flex;
     gap: 16px;
@@ -303,7 +182,7 @@ form .input-container input.filled + label {
     background: rgba(255, 255, 255, 0.075);
 }
 
-/* -------- Table -------- */
+/* ------------ Table styles ------------ */
 .table-container {
     max-height: 70vh;
     max-width: 100%;
@@ -337,7 +216,7 @@ form .input-container input.filled + label {
     background-color: #3a3a3a;
 }
 
-/* Modal styles */
+/* ------------ Modal styles ------------ */
 .modal {
     position: fixed;
     top: 0;
@@ -350,7 +229,6 @@ form .input-container input.filled + label {
     align-items: center;
     z-index: 1000;
 }
-
 .modal.show {
     display: flex;
 }
@@ -358,52 +236,76 @@ form .input-container input.filled + label {
 .modal-content {
     background-color: #1e1e1e;
     padding: 24px;
+    min-width: 500px;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
     border-radius: 8px;
-    min-width: 300px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 16px;
-}
+/* ---------------- Input styles ---------------- */
 
-.modal-actions {
+form {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    width: 60%;
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
+    gap: 16px;
+    flex-direction: column;
+    background: #1e1e1e;
+    border-radius: 8px;
 }
 
-.cancel-btn,
-.apply-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.cancel-btn {
-    background-color: #444;
-    color: #fff;
-}
-
-.apply-btn {
-    background-color: #007bff;
-    color: #fff;
-}
-
-/* -------------- select -------------- */
-.select-container {
+label {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+select,
+input:not([type="checkbox"]) {
+    width: 100%;
+    height: 50px;
+    min-width: 200px;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 4px;
+    background: #2c2c2c;
+    border: none;
+}
+
+input:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+.select-container {
+    height: 50px;
+    position: relative;
+    display: inline-flex;
 }
 
 .select-container select {
+    padding-right: 2rem;
     appearance: none;
-    -webkit-appearance: none;
     -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 .select-container::after {
@@ -420,20 +322,6 @@ form .input-container input.filled + label {
     border-top: 6px solid #fff; /* your arrow color */
 }
 
-label {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
-}
-
-select, input {
-    width: 100%;
-    color: white;
-    padding: 14px;
-    font-size: 18px;
-    border-radius: 4px;
-    background: #2c2c2c;
-    border: none;
+#helper-panel {
+    display: none;
 }

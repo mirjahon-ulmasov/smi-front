@@ -27,12 +27,14 @@
             <h2 class="fs-xl fw-bold">Производственные заказы</h2>
             <div class="filters">
                 <form>
-                    <div class="input-container">
-                        <input type="date">
-                    </div>
-                    <div class="input-container">
-                        <input type="date">
-                    </div>
+                    <label>
+                        <!-- Дата с: -->
+                        <input type="date" />
+                    </label>
+                    <label>
+                        <!-- Дата по: -->
+                        <input type="date" />
+                    </label>
                 </form>
                 <button type="button" onclick="openFullscreen()">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,28 +106,86 @@
             <!-- Filter Modal  -->
             <div class="modal" id="filterModal">
                 <div class="modal-content">
-                    <h2>Фильтр</h2>
-                    <label>
-                        Категория:
-                        <div class="select-container">
-                            <select>
-                                <option value="">Выберите</option>
-                                <option value="1">Опция 1</option>
-                                <option value="2">Опция 2</option>
-                            </select>
-                        </div>
-                    </label>
-                    <label>
-                        Дата:
-                        <input type="date" />
-                    </label>
-                    <label>
-                        Номер панели
-                        <input type="text" placeholder="Номер панели" />
-                    </label>
-                    <div class="modal-actions">
-                        <button class="cancel-btn" onclick="toggleModal()">Отмена</button>
-                        <button class="apply-btn">Применить</button>
+                    <h3 class="fs-lg fw-medium mb-1">Фильтр</h3>
+                    <div class="d-flex gap-16">
+                        <label>
+                            Процесс
+                            <div class="select-container">
+                                <select name="create_update">
+                                    <option value="">Выберите</option>
+                                    <option value="update">Изменения</option>
+                                    <option value="create">Создания</option>
+                                </select>
+                            </div>
+                        </label>
+                        <label>
+                            Номер заказа SMI
+                            <input type="text" name="id" placeholder="Номер заказа SMI" />
+                        </label>
+                        <label>
+                            Номер заказа SAP
+                            <input type="text" name="aufnr" placeholder="Номер заказа SAP" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex gap-16">
+                        <label>
+                            Дата создания
+                            <input type="date" name="created_at" />
+                        </label>
+                        <label>
+                            Дата заказа
+                            <input type="date" name="order_date" />
+                        </label>
+                        <label>
+                            SAP код материала
+                            <input type="text" name="mat_id" placeholder="SAP код материала" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex gap-16">
+                        <label>
+                            Наименование материала
+                            <input type="text" name="mat_name" placeholder="Наименование материала" />
+                        </label>
+                        <label>
+                            Вид материала
+                            <div class="select-container">
+                                <select name="mat_type">
+                                    <option value="">Выберите</option>
+                                    <option value="FERT">Готовое изделие</option>
+                                    <option value="HALB">Полуфабрикат</option>
+                                </select>
+                            </div>
+                        </label>
+                        <label>
+                            Участок
+                            <input type="text" name="zonename" placeholder="Участок" />
+                        </label>
+                    </div>
+                    
+                    <div class="d-flex gap-16">
+                        <label>
+                            Номер панели
+                            <input type="text" name="p_number" placeholder="Номер панели" />
+                        </label>
+                        <label>
+                            IP адрес
+                            <input type="text" name="counter" placeholder="Факт количество" />
+                        </label>
+                        <label style="width: 95px;">
+                            План колв.
+                            <input style="min-width: 95px;" type="number" name="psmng" placeholder="План количество" />
+                        </label>
+                        <label style="width: 95px;">
+                            Факт колв.
+                            <input style="min-width: 95px;" type="number" name="counter" placeholder="Факт количество" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex jc-end gap-16 mt-1">
+                        <button class="br-4 bg-grey" onclick="toggleModal()">Отмена</button>
+                        <button class="br-4 bg-blue">Применить</button>
                     </div>
                 </div>
             </div>

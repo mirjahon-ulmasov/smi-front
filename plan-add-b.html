@@ -71,7 +71,7 @@
                     <label class="flex-1">
                         Участок
                         <div class="select-container">
-                            <select>
+                            <select name="zonename">
                                 <option value="">Выберите участок</option>
                                 <option value="1">Участок 1</option>
                                 <option value="2">Участок 2</option>
@@ -85,11 +85,15 @@
                     <label class="flex-1">
                         Номер панели
                         <div class="select-container">
-                            <select>
+                            <select name="p_number">
                                 <option value="">Выберите панел</option>
-                                <option value="1">Панел 1</option>
-                                <option value="2">Панел 2</option>
-                                <option value="3">Панел 3</option>
+                                <option value="1">N-11 - Резьбонарезной</option>
+                                <option value="2">N-2.1 - Контактная сварка Пука 3.1</option>
+                                <option value="3">N-7 - Контактная сварка Паравоз ((Янги))</option>
+                                <option value="4">N-8.2 - Контактная сварка упор</option>
+                                <option value="5">N-9 - Аугмент 3D гипка</option>
+                                <option value="6">N-2 - Контактная сварка Пука 3</option>
+                                <option value="7">N-12 - Вальцовочный станок</option>
                             </select>
                         </div>
                     </label>
@@ -140,11 +144,11 @@
                     <div class="d-flex gap-8">
                         <label style="width: 100px;">
                             М
-                            <input type="number" placeholder="М" />
+                            <input style="min-width: 100px;" type="number" placeholder="М" />
                         </label>
                         <label style="width: 100px;">
                             КГ
-                            <input type="number" placeholder="КГ" />
+                            <input style="min-width: 100px;" type="number" placeholder="КГ" />
                         </label>
                     </div>
                 </div>
@@ -152,15 +156,15 @@
                 <div class="d-flex gap-16">
                     <label class="flex-1">
                         Множитель
-                        <input type="number" placeholder="Множитель" />
+                        <input type="number" name="multiplier" placeholder="Множитель" />
                     </label>
                     <label class="flex-1">
                         Пульс
-                        <input type="number" placeholder="Пульс" />
+                        <input type="number" name="divider" placeholder="Пульс" />
                     </label>
                     <label class="flex-1">
                         Ед. изм
-                        <input type="number" placeholder="Ед. изм" />
+                        <input type="number" name="quantity" placeholder="Ед. изм" />
                     </label>
                 </div>
             </form>
@@ -179,19 +183,18 @@
                             <p class="fs-sm">Рулон ДекорПанель МП 42</p>
                         </div>
                         <div class="d-flex gap-12">
-                            <div class="select">
-                                <div class="selected">
-                                    <span>Альтернатива Изготовление</span>
-                                    <img src="./icons/arrow.svg" alt="arrow icon" class="arrow">
+                            <label class="flex-1">
+                                <div class="select-container">
+                                    <select>
+                                        <option value="">Выберите изготовление</option>
+                                        <option value="1">Вариант 1</option>
+                                        <option value="2">Вариант 2</option>
+                                    </select>
                                 </div>
-                                <div class="options">
-                                    <div data-value="1">Вариант 1</div>
-                                    <div data-value="2">Вариант 2</div>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <input type="number" value="2.171" disabled>
-                            </div>
+                            </label>
+                            <label>
+                                <input type="number" value="2.171" disabled />
+                            </label>
                         </div>
                     </div>
 
@@ -205,19 +208,18 @@
                             <p class="fs-sm">Рулон для Корпус мини печ 4212</p>
                         </div>
                         <div class="d-flex gap-12">
-                            <div class="select">
-                                <div class="selected">
-                                    <span>Альтернатива Изготовление</span>
-                                    <img src="./icons/arrow.svg" alt="arrow icon" class="arrow">
+                            <label class="flex-1">
+                                <div class="select-container">
+                                    <select>
+                                        <option value="">Выберите изготовление</option>
+                                        <option value="1">Вариант 1</option>
+                                        <option value="2">Вариант 2</option>
+                                    </select>
                                 </div>
-                                <div class="options">
-                                    <div data-value="1">Вариант 1</div>
-                                    <div data-value="2">Вариант 2</div>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <input type="number" value="1.746" disabled>
-                            </div>
+                            </label>
+                            <label>
+                                <input type="number" value="1.746" disabled />
+                            </label>
                         </div>
                     </div>
 
@@ -231,19 +233,18 @@
                             <p class="fs-sm">Рулон для Корпус мини печ 3614</p>
                         </div>
                         <div class="d-flex gap-12">
-                            <div class="select">
-                                <div class="selected">
-                                    <span>Альтернатива Изготовление</span>
-                                    <img src="./icons/arrow.svg" alt="arrow icon" class="arrow">
+                            <label class="flex-1">
+                                <div class="select-container">
+                                    <select>
+                                        <option value="">Выберите изготовление</option>
+                                        <option value="1">Вариант 1</option>
+                                        <option value="2">Вариант 2</option>
+                                    </select>
                                 </div>
-                                <div class="options">
-                                    <div data-value="1">Вариант 1</div>
-                                    <div data-value="2">Вариант 2</div>
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <input type="number" value="2.084" disabled>
-                            </div>
+                            </label>
+                            <label>
+                                <input type="number" value="2.084" disabled />
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -252,31 +253,25 @@
     </main>
 
     <script>
-        document.querySelectorAll('.select').forEach(select => {
-            const selected = select.querySelector('.selected');
-            const options = select.querySelector('.options');
-            const selectedText = selected.querySelector('span');
+        document.addEventListener("DOMContentLoaded", () => {
+            const multiplierInput = document.querySelector('input[name="multiplier"]');
+            const dividerInput = document.querySelector('input[name="divider"]');
 
-            selected.addEventListener('click', e => {
-                e.stopPropagation();
-                const isOpen = select.classList.contains('open');
-                document.querySelectorAll('.select').forEach(s => s.classList.remove('open'));
-                if (!isOpen) select.classList.add('open');
+            function toggleDisable(current, other) {
+                if (current.value.trim() !== "") {
+                    other.disabled = true;
+                } else {
+                    other.disabled = false;
+                }
+            }
+
+            multiplierInput.addEventListener("input", () => {
+                toggleDisable(multiplierInput, dividerInput);
             });
 
-            options.querySelectorAll('div').forEach(option => {
-                option.addEventListener('click', e => {
-                    e.stopPropagation();
-                    selectedText.textContent = option.textContent;
-                    select.dataset.value = option.dataset.value;
-                    select.classList.remove('open');
-                    console.log('Selected value:', option.dataset.value);
-                });
+            dividerInput.addEventListener("input", () => {
+                toggleDisable(dividerInput, multiplierInput);
             });
-        });
-
-        window.addEventListener('click', () => {
-            document.querySelectorAll('.select').forEach(s => s.classList.remove('open'));
         });
 
         function goToPage(route) {

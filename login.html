@@ -26,16 +26,18 @@
         <main class="d-flex jc-center ai-center flex-1">
             <div class="d-flex fd-col gap-18 p-32 br-8 bg-dark w-400">
                 <h2 class="fs-xl fw-bold white">Логин</h2>
-                <div class="input-container w-100">
-                    <input type="text" placeholder="username" oninput="checkInput(this)" >
-                </div>
-                <div class="input-container w-100">
-                    <input type="password" id="password" placeholder="password" oninput="checkInput(this)" />
+                <label class="w-100">
+                    Логин
+                    <input type="text" placeholder="mirjahon" oninput="checkInput(this)" />
+                </label>
+                <label class="w-100">
+                    Пароль
+                    <input type="password" id="password" placeholder="mirjahon3307" oninput="checkInput(this)" />
                     <button type="button" class="toggle-password p-0" onclick="togglePassword()">
                         <img src="./icons/eye.svg" alt="Back">
                     </button>
-                </div>
-                <button class="login w-100 br-4" onclick="goToPage('/main.html')">Войти</button>
+                </label>
+                <button class="bg-blue w-100 br-4" onclick="goToPage('/main.html')">Войти</button>
             </div>
         </main>
         

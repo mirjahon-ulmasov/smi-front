@@ -50,7 +50,7 @@
                 <button type="button" onclick="goToPage('plan-add-c.html')">C</button>
             </div>
         </div>
-        <div class="d-flex">
+        <div class="d-flex ai-start gap-32">
             <form>
                 <h3 class="fs-md fw-medium mb-1">Данные для заказа</h3>
                 <div class="d-flex gap-16">
@@ -68,7 +68,7 @@
                     <label class="flex-1">
                         Участок
                         <div class="select-container">
-                            <select>
+                            <select name="zonename">
                                 <option value="">Выберите участок</option>
                                 <option value="1">Участок 1</option>
                                 <option value="2">Участок 2</option>
@@ -82,11 +82,15 @@
                     <label class="flex-1">
                         Номер панели
                         <div class="select-container">
-                            <select>
+                            <select name="p_number">
                                 <option value="">Выберите панел</option>
-                                <option value="1">Панел 1</option>
-                                <option value="2">Панел 2</option>
-                                <option value="3">Панел 3</option>
+                                <option value="1">N-11 - Резьбонарезной</option>
+                                <option value="2">N-2.1 - Контактная сварка Пука 3.1</option>
+                                <option value="3">N-7 - Контактная сварка Паравоз ((Янги))</option>
+                                <option value="4">N-8.2 - Контактная сварка упор</option>
+                                <option value="5">N-9 - Аугмент 3D гипка</option>
+                                <option value="6">N-2 - Контактная сварка Пука 3</option>
+                                <option value="7">N-12 - Вальцовочный станок</option>
                             </select>
                         </div>
                     </label>
@@ -143,43 +147,130 @@
                 <div class="d-flex gap-16">
                     <label class="flex-1">
                         Множитель
-                        <input type="number" placeholder="Множитель" />
+                        <input type="number" name="multiplier" placeholder="Множитель" />
                     </label>
                     <label class="flex-1">
                         Пульс
-                        <input type="number" placeholder="Пульс" />
+                        <input type="number" name="divider" placeholder="Пульс" />
                     </label>
                     <label class="flex-1">
                         Ед. изм
-                        <input type="number" placeholder="Ед. изм" />
+                        <input type="number" name="quantity" placeholder="Ед. изм" />
                     </label>
+                </div>
+            </form>
+
+            <form id="helper-panel">
+                <h3 class="fs-md fw-medium mb-1">Выберите helper панела</h3>
+                <div>
+                    <div class="component-item">
+                        <input type="checkbox" checked style="margin-top: 1rem;" />
+                        <label class="flex-1">
+                            Количество - Сверлильный 1 / Фаска
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Множитель - Сверлильный 1 / Фаска
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Пульс - Сверлильный 1 / Фаска
+                            <input type="number" />
+                        </label>
+                    </div>
+
+                    <div class="component-item">
+                        <input type="checkbox" checked style="margin-top: 1rem;" />
+                        <label class="flex-1">
+                            Количество - Сверлильный 2
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Множитель - Сверлильный 2
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Пульс - Сверлильный 2
+                            <input type="number" />
+                        </label>
+                    </div>
+
+                    <div class="component-item">
+                        <input type="checkbox" checked style="margin-top: 1rem;" />
+                        <label class="flex-1">
+                            Количество - Фаска
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Множитель - Фаска
+                            <input type="number" />
+                        </label>
+                        <label class="flex-1">
+                            Пульс - Фаска
+                            <input type="number" />
+                        </label>
+                    </div>
                 </div>
             </form>
         </div>
     </main>
 
     <script>
-        document.querySelectorAll('.select').forEach(select => {
-            const selected = select.querySelector('.selected');
-            const span = selected.getElementsByTagName('span')[0]
-            const items = select.querySelector('.options');
-            selected.addEventListener('click', () => {
-                document.querySelectorAll('.options').forEach(i => {
-                    if (i !== items) i.style.display = 'none';
-                });
-                items.style.display = items.style.display === 'block' ? 'none' : 'block';
+        document.addEventListener("DOMContentLoaded", () => {
+            const multiplierInput = document.querySelector('input[name="multiplier"]');
+            const dividerInput = document.querySelector('input[name="divider"]');
+
+            function toggleDisable(current, other) {
+                if (current.value.trim() !== "") {
+                    other.disabled = true;
+                } else {
+                    other.disabled = false;
+                }
+            }
+
+            multiplierInput.addEventListener("input", () => {
+                toggleDisable(multiplierInput, dividerInput);
             });
-            items.querySelectorAll('div').forEach(option => {
-                option.addEventListener('click', () => {
-                    span.textContent = option.textContent;
-                    items.style.display = 'none';
-                });
+
+            dividerInput.addEventListener("input", () => {
+                toggleDisable(dividerInput, multiplierInput);
             });
         });
 
-        window.addEventListener('click', function (e) {
-            if (!e.target.matches('.selected')) {
-                document.querySelectorAll('.options').forEach(i => i.style.display = 'none');
+        document.addEventListener("DOMContentLoaded", () => {
+            const select = document.querySelector('select[name="p_number"]');
+            const helperPanelForm = document.getElementById("helper-panel");
+
+            select.addEventListener("change", () => {
+                if (select.value === "1") {
+                    helperPanelForm.style.display = "block";
+                } else {
+                    helperPanelForm.style.display = "none";
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".component-item").forEach(item => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const inputs = item.querySelectorAll('input[type="number"]');
+
+                updateInputs(checkbox, inputs);
+
+                checkbox.addEventListener("change", () => {
+                    updateInputs(checkbox, inputs);
+                });
+            });
+
+            function updateInputs(checkbox, inputs) {
+                inputs.forEach(input => {
+                    if (checkbox.checked) {
+                        input.disabled = false;
+                    } else {
+                        input.value = "";
+                        input.disabled = true;
+                    }
+                });
             }
         });
 
