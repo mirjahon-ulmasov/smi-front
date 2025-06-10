@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SMI</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="color.css" />
+        <link rel="stylesheet" href="flexbox.css" />
+        <link rel="stylesheet" href="spacing.css" />
+        <link rel="stylesheet" href="typography.css" />
+        <link rel="icon" type="image/x-icon" href="./icons/logo.svg">
+    </head>
+    <body class="d-flex fd-col">
+        <nav class="d-flex jc-sb ai-center w-100 bg-dark" style="padding: 16px 24px;">
+            <div class="logo" onclick="goToPage('/main.html')">
+                <img src="./icons/logo.svg" alt="logo">
+                SMI Штамповка
+            </div>
+            <div class="d-flex gap-16">
+                <img src="./icons/artel.svg" alt="artel">
+                <img src="./icons/sap.svg" alt="sap">
+            </div>
+        </nav>
+    
+        <main class="flex-1 w-100 p-32">
+            <h2 class="fs-xl fw-bold">Производственные заказы</h2>
+            <div class="filters">
+                <form>
+                    <label>
+                        <!-- Дата с: -->
+                        <input type="date" />
+                    </label>
+                    <label>
+                        <!-- Дата по: -->
+                        <input type="date" />
+                    </label>
+                </form>
+                <button type="button" onclick="openFullscreen()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.6666 8.3335L16.6666 3.3335M16.6666 3.3335H12.9166M16.6666 3.3335V7.0835M3.33325 3.3335L8.33325 8.3335M3.33325 3.3335V7.0835M3.33325 3.3335H7.08325M11.6666 11.6668L16.6666 16.6668M16.6666 16.6668V12.9168M16.6666 16.6668H12.9166M8.33325 11.6668L3.33325 16.6668M3.33325 16.6668H7.08325M3.33325 16.6668L3.33325 12.9168" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button type="button" onclick="toggleModal()">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 4.1C2.5 3.53995 2.5 3.25992 2.60899 3.04601C2.70487 2.85785 2.85785 2.70487 3.04601 2.60899C3.25992 2.5 3.53995 2.5 4.1 2.5H15.9C16.4601 2.5 16.7401 2.5 16.954 2.60899C17.1422 2.70487 17.2951 2.85785 17.391 3.04601C17.5 3.25992 17.5 3.53995 17.5 4.1V5.17059C17.5 5.41518 17.5 5.53748 17.4724 5.65257C17.4479 5.7546 17.4075 5.85215 17.3526 5.94162C17.2908 6.04253 17.2043 6.12901 17.0314 6.30196L12.1353 11.198C11.9623 11.371 11.8759 11.4575 11.814 11.5584C11.7592 11.6479 11.7188 11.7454 11.6943 11.8474C11.6667 11.9625 11.6667 12.0848 11.6667 12.3294V14.1667L8.33333 17.5V12.3294C8.33333 12.0848 8.33333 11.9625 8.3057 11.8474C8.28121 11.7454 8.2408 11.6479 8.18597 11.5584C8.12413 11.4575 8.03766 11.371 7.8647 11.198L2.96863 6.30196C2.79568 6.12901 2.7092 6.04253 2.64736 5.94162C2.59253 5.85215 2.55213 5.7546 2.52763 5.65257C2.5 5.53748 2.5 5.41518 2.5 5.17059V4.1Z" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.33398 5H16.6673M3.33398 10H11.6673M3.33398 15H7.50065" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table class="dark-table">
+                    <thead>
+                        <tr>
+                            <th><img class="arrow right toggle-all" src="/icons/arrow.svg"></th>
+                            <th>
+                                <p>Номер заказа SMI</p>
+                                <p>Номер заказа SAP</p>
+                            </th>
+                            <th>
+                                <p>SAP код материала</p>
+                                <p>Наименование</p>
+                            </th>
+                            <th>
+                                <p>План / Факт (Ед. изм)</p>
+                                <p>Разница</p>
+                            </th>
+                            <th>
+                                <p>Дата заказа</p>
+                                <p>Дата создания</p>
+                            </th>
+                            <th>
+                                <p>Статус</p>
+                                <p>Журнал</p>
+                            </th>
+                            <th>
+                                <p>Время цикла</p>
+                                <p>IP адрес</p>
+                            </th>
+                            <th>Cмена</th>
+                            <th>
+                                <p>Информация о панели</p>
+                                <p>Участок</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="parent-row">
+                            <td><img class="arrow right toggle-row" src="/icons/arrow.svg"></td>
+                            <td>PO49165</td>
+                            <td>
+                                <p>MatBox</p>
+                                <p>Все варианты</p>
+                            </td>
+                            <td></td>
+                            <td>
+                                <p>17.02.2025</p>
+                                <p>17.02.2025</p>
+                            </td>
+                            <td>
+                                <p>MesSuccess</p>
+                                <p>Активный</p>
+                            </td>
+                            <td>
+                                <p>6 Сек</p>
+                                <p>10.0.25.27</p>
+                            </td>
+                            <td>День</td>
+                            <td>
+                                <p>Sht23 / №23 Yadon 800 т</p>
+                                <p>3011 / Цех Штамповки</p>
+                            </td>
+                        </tr>
+                        <tr class="child-row">
+                            <td></td>
+                            <td>
+                                <p>54709</p>
+                                <p>000012953770</p>
+                            </td>
+                            <td>
+                                <p>SPRGP011009</p>
+                                <p>Стенка духовки нижняя 50x57 для ТЭНа</p>
+                            </td>
+                            <td>
+                                <p>10000 / 0</p>
+                                <p>10000</p>
+                            </td>
+                            <td>17.02.2025</td>
+                            <td>
+                                <p>Success</p>
+                                <p>Активный</p>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="parent-row">
+                            <td><img class="arrow right toggle-row" src="/icons/arrow.svg"></td>
+                            <td>PO49165</td>
+                            <td>
+                                <p>MatBox</p>
+                                <p>Все варианты</p>
+                            </td>
+                            <td></td>
+                            <td>
+                                <p>19.08.2024</p>
+                                <p>19.08.2024</p>
+                            </td>
+                            <td>
+                                <p>MesSuccess</p>
+                                <p>Активный</p>
+                            </td>
+                            <td>
+                                <p>6 Сек</p>
+                                <p>10.0.25.27</p>
+                            </td>
+                            <td>День</td>
+                            <td>
+                                <p>Sht23 / №23 Yadon 800 т</p>
+                                <p>3011 / Цех Штамповки</p>
+                            </td>
+                        </tr>
+                        <tr class="child-row">
+                            <td></td>
+                            <td>
+                                <p>54699</p>
+                                <p>000012799934</p>
+                            </td>
+                            <td>
+                                <p>SPRHD001050</p>
+                                <p>Стойка левая (верхняя) HS474N</p>
+                            </td>
+                            <td>
+                                <p>160 / 160</p>
+                                <p>160</p>
+                            </td>
+                            <td>19.08.2024</td>
+                            <td>
+                                <p>Заказ подтвержден окончательно</p>
+                                <p>Неактивный</p>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Filter Modal  -->
+            <div class="modal" id="filterModal">
+                <div class="modal-content">
+                    <h3 class="fs-lg fw-medium mb-1">Фильтр</h3>
+                    <div class="d-flex gap-16">
+                        <label>
+                            Процесс
+                            <div class="select-container">
+                                <select name="create_update">
+                                    <option value="">Выберите</option>
+                                    <option value="update">Изменения</option>
+                                    <option value="create">Создания</option>
+                                </select>
+                            </div>
+                        </label>
+                        <label>
+                            Номер заказа SMI
+                            <input type="text" name="id" placeholder="Номер заказа SMI" />
+                        </label>
+                        <label>
+                            Номер заказа SAP
+                            <input type="text" name="aufnr" placeholder="Номер заказа SAP" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex gap-16">
+                        <label>
+                            Дата создания
+                            <input type="date" name="created_at" />
+                        </label>
+                        <label>
+                            Дата заказа
+                            <input type="date" name="order_date" />
+                        </label>
+                        <label>
+                            SAP код материала
+                            <input type="text" name="mat_id" placeholder="SAP код материала" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex gap-16">
+                        <label>
+                            Наименование материала
+                            <input type="text" name="mat_name" placeholder="Наименование материала" />
+                        </label>
+                        <label>
+                            Вид материала
+                            <div class="select-container">
+                                <select name="mat_type">
+                                    <option value="">Выберите</option>
+                                    <option value="FERT">Готовое изделие</option>
+                                    <option value="HALB">Полуфабрикат</option>
+                                </select>
+                            </div>
+                        </label>
+                        <label>
+                            Участок
+                            <input type="text" name="zonename" placeholder="Участок" />
+                        </label>
+                    </div>
+                    
+                    <div class="d-flex gap-16">
+                        <label>
+                            Номер панели
+                            <input type="text" name="p_number" placeholder="Номер панели" />
+                        </label>
+                        <label>
+                            IP адрес
+                            <input type="text" name="counter" placeholder="Факт количество" />
+                        </label>
+                        <label style="width: 95px;">
+                            План колв.
+                            <input style="min-width: 95px;" type="number" name="psmng" placeholder="План количество" />
+                        </label>
+                        <label style="width: 95px;">
+                            Факт колв.
+                            <input style="min-width: 95px;" type="number" name="counter" placeholder="Факт количество" />
+                        </label>
+                    </div>
+
+                    <div class="d-flex jc-end gap-16 mt-1">
+                        <button class="br-4 bg-grey" onclick="toggleModal()">Отмена</button>
+                        <button class="br-4 bg-blue">Применить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script>
+            function goToPage(route) {
+                window.location.href = route;
+            }
+
+            function openFullscreen() {
+                let elem = document.body
+
+                if (!document.fullscreenElement) elem.requestFullscreen()
+                else document.exitFullscreen()
+            }
+            
+            // Close modal when clicking outside content
+            document.addEventListener('click', function (event) {
+                const modal = document.getElementById('filterModal');
+                const modalContent = document.querySelector('.modal-content');
+                
+                if (modal.classList.contains('show') && !modalContent.contains(event.target) && !event.target.closest('button[onclick="toggleModal()"]')) {
+                    modal.classList.remove('show');
+                }
+            });
+            function toggleModal() {
+                const modal = document.getElementById('filterModal');
+                modal.classList.toggle('show');
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const toggleRow = document.querySelectorAll('.toggle-row');
+                const toggleAll = document.querySelector('.toggle-all');
+                const childRows = document.querySelectorAll('.child-row');
+
+                // Parent row individual toggling
+                toggleRow.forEach((icon) => {
+                    icon.style.cursor = 'pointer';
+                    icon.addEventListener('click', function (e) {
+                        const parentRow = e.target.closest('tr');
+                        const nextRow = parentRow.nextElementSibling;
+
+                        if (nextRow && nextRow.classList.contains('child-row')) {
+                            const isVisible = nextRow.style.display === 'table-row';
+                            nextRow.style.display = isVisible ? 'none' : 'table-row';
+
+                            icon.classList.toggle('down', !isVisible);
+                            icon.classList.toggle('right', isVisible);
+                        }
+                    });
+                });
+
+                // Toggle all child rows
+                let allExpanded = false;
+
+                toggleAll.addEventListener('click', function () {
+                    allExpanded = !allExpanded;
+
+                    childRows.forEach(row => {
+                        row.style.display = allExpanded ? 'table-row' : 'none';
+                    });
+
+                    toggleRow.forEach(icon => {
+                        icon.classList.toggle('down', allExpanded);
+                        icon.classList.toggle('right', !allExpanded);
+                    });
+
+                    toggleAll.classList.toggle('down', allExpanded);
+                    toggleAll.classList.toggle('right', !allExpanded);
+                });
+            });
+        </script>
+    </body>
+</html>

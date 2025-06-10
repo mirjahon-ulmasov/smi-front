@@ -132,6 +132,9 @@ button.secondary:hover {
     background: #cff5b1;
 }
 
+.arrow {
+    transition: transform 0.3s ease;
+}
 .arrow.down {
     transform: rotate(180deg);
 }
@@ -149,14 +152,30 @@ button.secondary:hover {
     background: #2c2c2c;
 }
 
+.component {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
 .component-item {
-    padding: 12px 0;
+    flex: 1;
+    padding: 12px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #ffffff1c;
+}
+
+.component-item.disabled {
+    cursor: not-allowed;
+    background-color: #3a3a3a;
+}
+
+.component-item.disabled * {
+    cursor: not-allowed;
 }
 
 /* ------------ Filter styles ------------ */
@@ -193,18 +212,32 @@ button.secondary:hover {
 
 .dark-table {
     width: 100%;
-    border-collapse: collapse;
     color: #fff;
+    cursor: pointer;
+    border-collapse: collapse;
     background-color: #2c2c2c;
 }
 
 .dark-table thead th {
     position: sticky;
     top: 0;
-    background-color: #1e1e1e;
     padding: 12px;
     text-align: left;
+    background-color: #1e1e1e;
     border-bottom: 1px solid #444;
+}
+
+.dark-table thead th p,
+.dark-table tbody td p {
+    min-width: max-content;
+    margin-bottom: 4px;
+}
+
+.dark-table thead th p:nth-child(2),
+.dark-table tbody td p:nth-child(2) {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
 }
 
 .dark-table tbody td {
@@ -213,7 +246,12 @@ button.secondary:hover {
 }
 
 .dark-table tbody tr:hover {
-    background-color: #3a3a3a;
+    background-color: #0c322d;
+}
+
+.child-row {
+    display: none;
+    background-color: #393939;
 }
 
 /* ------------ Modal styles ------------ */

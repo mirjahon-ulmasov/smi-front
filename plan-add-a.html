@@ -155,7 +155,7 @@
                     </label>
                     <label class="flex-1">
                         Ед. изм
-                        <input type="number" name="quantity" placeholder="Ед. изм" />
+                        <input name="quantity" placeholder="Ед. изм" disabled value="ШТ" />
                     </label>
                 </div>
             </form>
@@ -254,11 +254,23 @@
             document.querySelectorAll(".component-item").forEach(item => {
                 const checkbox = item.querySelector('input[type="checkbox"]');
                 const inputs = item.querySelectorAll('input[type="number"]');
+                const multiplier = inputs[1];
+                const pulse = inputs[2];
 
                 updateInputs(checkbox, inputs);
+                syncDisable(multiplier, pulse);
+                syncDisable(pulse, multiplier);
 
                 checkbox.addEventListener("change", () => {
                     updateInputs(checkbox, inputs);
+                });
+
+                multiplier.addEventListener("input", () => {
+                    syncDisable(multiplier, pulse);
+                });
+
+                pulse.addEventListener("input", () => {
+                    syncDisable(pulse, multiplier);
                 });
             });
 
@@ -271,6 +283,14 @@
                         input.disabled = true;
                     }
                 });
+            }
+
+            function syncDisable(primary, secondary) {
+                if (primary.value.trim() !== "") {
+                    secondary.disabled = true;
+                } else {
+                    secondary.disabled = false;
+                }
             }
         });
 

@@ -158,7 +158,7 @@
                     </label>
                     <label class="flex-1">
                         Ед. изм
-                        <input type="number" name="quantity" placeholder="Ед. изм" />
+                        <input name="quantity" placeholder="Ед. изм" disabled value="ШТ" />
                     </label>
                 </div>
             </form>
@@ -167,53 +167,59 @@
                 <h3 class="fs-md fw-medium mb-1">Компоненты к матрице заказа</h3>
                 <!-- <p class="d-flex fs-md fw-medium grey">Пока ничего нет</p> -->
                 <div>
-                    <div class="component-item">
-                        <div class="d-flex fd-col ai-start gap-8">
-                            <div class="d-flex gap-8">
-                                <h2 class="fs-md">SPRGK000161</h2>
-                                <span class="measure">1</span>
-                                <span class="measure">ШТ</span>
-                            </div>
-                            <p class="fs-sm">Вытяжка правая часть VI Vitopend 24kW</p>
-                        </div>
-                        <div class="d-flex gap-12">
-                            <label class="flex-1">
-                                <div class="select-container">
-                                    <select>
-                                        <option value="">Выберите изготовление</option>
-                                        <option value="1">Вариант 1</option>
-                                        <option value="2">Вариант 2</option>
-                                    </select>
+                    <div class="component">
+                        <input type="checkbox" checked />
+                        <div class="component-item">
+                            <div class="d-flex fd-col ai-start gap-8">
+                                <div class="d-flex gap-8">
+                                    <h2 class="fs-md">SPRGK000160</h2>
+                                    <span class="measure">1</span>
+                                    <span class="measure">ШТ</span>
                                 </div>
-                            </label>
-                            <label>
-                                <input type="number" value="1.000" disabled />
-                            </label>
+                                <p class="fs-sm">Вытяжка левая часть VI Vitopend 24kW</p>
+                            </div>
+                            <div class="d-flex gap-12">
+                                <label class="flex-1">
+                                    <div class="select-container">
+                                        <select>
+                                            <option value="">Выберите изготовление</option>
+                                            <option value="1">Вариант 1</option>
+                                            <option value="2">Вариант 2</option>
+                                        </select>
+                                    </div>
+                                </label>
+                                <label>
+                                    <input type="number" value="1.000" disabled />
+                                </label>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="component-item">
-                        <div class="d-flex fd-col ai-start gap-8">
-                            <div class="d-flex gap-8">
-                                <h2 class="fs-md">SPRGK000160</h2>
-                                <span class="measure">1</span>
-                                <span class="measure">ШТ</span>
-                            </div>
-                            <p class="fs-sm">Вытяжка левая часть VI Vitopend 24kW</p>
-                        </div>
-                        <div class="d-flex gap-12">
-                            <label class="flex-1">
-                                <div class="select-container">
-                                    <select>
-                                        <option value="">Выберите изготовление</option>
-                                        <option value="1">Вариант 1</option>
-                                        <option value="2">Вариант 2</option>
-                                    </select>
+                    <div class="component">
+                        <input type="checkbox" checked />
+                        <div class="component-item">
+                            <div class="d-flex fd-col ai-start gap-8">
+                                <div class="d-flex gap-8">
+                                    <h2 class="fs-md">SPRGK000160</h2>
+                                    <span class="measure">1</span>
+                                    <span class="measure">ШТ</span>
                                 </div>
-                            </label>
-                            <label>
-                                <input type="number" value="1.000" disabled />
-                            </label>
+                                <p class="fs-sm">Вытяжка левая часть VI Vitopend 24kW</p>
+                            </div>
+                            <div class="d-flex gap-12">
+                                <label class="flex-1">
+                                    <div class="select-container">
+                                        <select>
+                                            <option value="">Выберите изготовление</option>
+                                            <option value="1">Вариант 1</option>
+                                            <option value="2">Вариант 2</option>
+                                        </select>
+                                    </div>
+                                </label>
+                                <label>
+                                    <input type="number" value="1.000" disabled />
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -241,6 +247,32 @@
             dividerInput.addEventListener("input", () => {
                 toggleDisable(dividerInput, multiplierInput);
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".component").forEach(row => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                const component = row.querySelector('.component-item');
+                const select = component.querySelector('select');
+
+                // Initialize based on checked state
+                toggleDisabled(checkbox.checked, component, select);
+
+                // Toggle on change
+                checkbox.addEventListener('change', () => {
+                    toggleDisabled(checkbox.checked, component, select);
+                });
+            });
+
+            function toggleDisabled(isChecked, component, select) {
+                if (isChecked) {
+                    component.classList.remove("disabled");
+                    select.disabled = false
+                } else {
+                    component.classList.add("disabled");
+                    select.disabled = true
+                }
+            }
         });
 
         function goToPage(route) {
