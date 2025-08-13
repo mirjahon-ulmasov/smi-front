@@ -162,53 +162,77 @@
 
             <form id="helper-panel">
                 <h3 class="fs-md fw-medium mb-1">Выберите helper панела</h3>
-                <div>
-                    <div class="component-item">
-                        <input type="checkbox" checked style="margin-top: 1rem;" />
-                        <label class="flex-1">
-                            Количество - Сверлильный 1 / Фаска
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Множитель - Сверлильный 1 / Фаска
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Пульс - Сверлильный 1 / Фаска
-                            <input type="number" />
-                        </label>
+                <div class="d-flex fd-col gap-12 w-100">
+                    <div class="component-item w-100">
+                        <div class="d-flex fd-col ai-start gap-8 w-100">
+                            <h4 class="d-flex gap-8">
+                                <input type="checkbox" checked />
+                                <span class="measure">N-12</span>
+                                <span>Сверлильный 1 / Фаска</span>
+                            </h4>
+                            <div class="d-flex gap-16 w-100">
+                                <label class="flex-1">
+                                    Количество
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Множитель
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Пульс
+                                    <input type="number" />
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="component-item">
-                        <input type="checkbox" checked style="margin-top: 1rem;" />
-                        <label class="flex-1">
-                            Количество - Сверлильный 2
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Множитель - Сверлильный 2
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Пульс - Сверлильный 2
-                            <input type="number" />
-                        </label>
+                    <div class="component-item w-100">
+                        <div class="d-flex fd-col ai-start gap-8 w-100">
+                            <h4 class="d-flex gap-8">
+                                <input type="checkbox" checked />
+                                <span class="measure">N-15</span>
+                                <span>Сверлильный 2</span>
+                            </h4>
+                            <div class="d-flex gap-16 w-100">
+                                <label class="flex-1">
+                                    Количество
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Множитель
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Пульс
+                                    <input type="number" />
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="component-item">
-                        <input type="checkbox" checked style="margin-top: 1rem;" />
-                        <label class="flex-1">
-                            Количество - Фаска
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Множитель - Фаска
-                            <input type="number" />
-                        </label>
-                        <label class="flex-1">
-                            Пульс - Фаска
-                            <input type="number" />
-                        </label>
+                    <div class="component-item w-100">
+                        <div class="d-flex fd-col ai-start gap-8 w-100">
+                            <h4 class="d-flex gap-8">
+                                <input type="checkbox" checked />
+                                <span class="measure">N-18</span>
+                                <span>Фаска</span>
+                            </h4>
+                            <div class="d-flex gap-16 w-100">
+                                <label class="flex-1">
+                                    Количество
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Множитель
+                                    <input type="number" />
+                                </label>
+                                <label class="flex-1">
+                                    Пульс
+                                    <input type="number" />
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -275,14 +299,19 @@
             });
 
             function updateInputs(checkbox, inputs) {
-                inputs.forEach(input => {
-                    if (checkbox.checked) {
+                const componentItem = checkbox.closest(".component-item"); // find the container
+                if (checkbox.checked) {
+                    componentItem.classList.remove("disabled");
+                    inputs.forEach(input => {
                         input.disabled = false;
-                    } else {
+                    });
+                } else {
+                    componentItem.classList.add("disabled");
+                    inputs.forEach(input => {
                         input.value = "";
                         input.disabled = true;
-                    }
-                });
+                    });
+                }
             }
 
             function syncDisable(primary, secondary) {
