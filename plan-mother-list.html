@@ -63,16 +63,24 @@
                                 <p>Номер заказа SAP</p>
                             </th>
                             <th>
+                                <p>Вариант <br/> изготовления</p>
+                            </th>
+                            <th>
                                 <p>SAP код материала</p>
                                 <p>Наименование</p>
                             </th>
                             <th>
-                                <p>План / Факт (Ед. изм)</p>
+                                <p>Ед. <br/> измерения</p>
+                            </th>
+                            <th>
+                                <p>План / Факт</p>
                                 <p>Разница</p>
                             </th>
                             <th>
-                                <p>Дата заказа</p>
-                                <p>Дата создания</p>
+                                <p>Дата создания <br/> в MES</p>
+                            </th>
+                            <th>
+                                <p>Дата создания <br/> в SAP</p>
                             </th>
                             <th>
                                 <p>Статус</p>
@@ -92,16 +100,22 @@
                     <tbody>
                         <tr class="parent-row">
                             <td><img class="arrow right toggle-row" src="/icons/arrow.svg"></td>
-                            <td>PO49165</td>
+                            <td>PO17062</td>
                             <td>
                                 <p>MatBox</p>
                                 <p>Все варианты</p>
                             </td>
+                            <td>
+                                <p>MHD0100027</p>
+                                <p>Пресс форма Хол SAM BMF-RB37A осн ср пер</p>
+                            </td>
                             <td></td>
                             <td>
-                                <p>17.02.2025</p>
-                                <p>17.02.2025</p>
+                                <p>4 / 5</p>
+                                <p class="c-green">1</p>
                             </td>
+                            <td>17.02.2025</td>
+                            <td>17.02.2025</td>
                             <td>
                                 <p>MesSuccess</p>
                                 <p>Активный</p>
@@ -119,17 +133,20 @@
                         <tr class="child-row">
                             <td></td>
                             <td>
-                                <p>54709</p>
+                                <p>53839</p>
                                 <p>000012953770</p>
                             </td>
+                            <td></td>
                             <td>
-                                <p>SPRGP011009</p>
-                                <p>Стенка духовки нижняя 50x57 для ТЭНа</p>
+                                <p>SVPRHD010037</p>
+                                <p>Основание Samsung RT-37 сред перег</p>
                             </td>
+                            <td>ШТ</td>
                             <td>
-                                <p>10000 / 0</p>
-                                <p>10000</p>
+                                <p>10000 / 11500</p>
+                                <p class="c-green">1500</p>
                             </td>
+                            <td>17.02.2025</td>
                             <td>17.02.2025</td>
                             <td>
                                 <p>Success</p>
@@ -146,11 +163,17 @@
                                 <p>MatBox</p>
                                 <p>Все варианты</p>
                             </td>
+                            <td>
+                                <p>MTHD0100004</p>
+                                <p>Пресс форма Холод FА-390 поддон/крышка</p>
+                            </td>
                             <td></td>
                             <td>
-                                <p>19.08.2024</p>
-                                <p>19.08.2024</p>
+                                <p>4 / 3</p>
+                                <p class="c-red">1</p>
                             </td>
+                            <td>19.08.2024</td>
+                            <td>19.08.2024</td>
                             <td>
                                 <p>MesSuccess</p>
                                 <p>Активный</p>
@@ -171,14 +194,17 @@
                                 <p>54699</p>
                                 <p>000012799934</p>
                             </td>
+                            <td></td>
                             <td>
-                                <p>SPRHD001050</p>
-                                <p>Стойка левая (верхняя) HS474N</p>
+                                <p>SVPRHDT0010</p>
+                                <p>Верхний защитник R FA-390/480</p>
                             </td>
+                            <td>ШТ</td>
                             <td>
-                                <p>160 / 160</p>
-                                <p>160</p>
+                                <p>160 / 140</p>
+                                <p class="c-red">20</p>
                             </td>
+                            <td>19.08.2024</td>
                             <td>19.08.2024</td>
                             <td>
                                 <p>Заказ подтвержден окончательно</p>
@@ -196,7 +222,7 @@
                 <div class="modal-content">
                     <h3 class="fs-lg fw-medium mb-1">Фильтр</h3>
                     <div class="d-flex gap-16">
-                        <label>
+                        <label class="flex-1">
                             Процесс
                             <div class="select-container">
                                 <select name="create_update">
@@ -206,37 +232,37 @@
                                 </select>
                             </div>
                         </label>
-                        <label>
+                        <label class="flex-1">
                             Номер заказа SMI
                             <input type="text" name="id" placeholder="Номер заказа SMI" />
                         </label>
-                        <label>
+                        <label class="flex-1">
                             Номер заказа SAP
                             <input type="text" name="aufnr" placeholder="Номер заказа SAP" />
                         </label>
                     </div>
 
                     <div class="d-flex gap-16">
-                        <label>
+                        <label class="flex-1">
                             Дата создания
                             <input type="date" name="created_at" />
                         </label>
-                        <label>
+                        <label class="flex-1">
                             Дата заказа
                             <input type="date" name="order_date" />
                         </label>
-                        <label>
+                        <label class="flex-1">
                             SAP код материала
                             <input type="text" name="mat_id" placeholder="SAP код материала" />
                         </label>
                     </div>
 
                     <div class="d-flex gap-16">
-                        <label>
+                        <label class="flex-1">
                             Наименование материала
                             <input type="text" name="mat_name" placeholder="Наименование материала" />
                         </label>
-                        <label>
+                        <label class="flex-1">
                             Вид материала
                             <div class="select-container">
                                 <select name="mat_type">
@@ -246,18 +272,18 @@
                                 </select>
                             </div>
                         </label>
-                        <label>
+                        <label class="flex-1">
                             Участок
                             <input type="text" name="zonename" placeholder="Участок" />
                         </label>
                     </div>
                     
                     <div class="d-flex gap-16">
-                        <label>
+                        <label class="flex-1">
                             Номер панели
                             <input type="text" name="p_number" placeholder="Номер панели" />
                         </label>
-                        <label>
+                        <label class="flex-1">
                             IP адрес
                             <input type="text" name="counter" placeholder="Факт количество" />
                         </label>
